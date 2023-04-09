@@ -2,6 +2,7 @@ import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-
 import { beforeEach, describe, expect, it } from 'vitest'
 import { RegisterUseCase } from './register'
 import { compare } from 'bcryptjs'
+import { OrgAlreadyExistsError } from './errors/org-already-exists-error'
 
 let orgsRepository: InMemoryOrgsRepository
 let sut: RegisterUseCase
@@ -40,5 +41,27 @@ describe('Register Use Case', () => {
     expect(isPasswordCorrectlyHashed).toBe(true)
   })
 
-  it('should not be able to register with same email twice', async () => {})
+  it('should not be able to register with same email twice', async () => {
+    const email = 'johndoe@example.com'
+
+    await sut.execute({
+      name: 'john doe',
+      email,
+      address: '123 Main St',
+      cep: '123',
+      password: '123456',
+      whatsappNumber: '123456789',
+    })
+
+    await expect(() =>
+      sut.execute({
+        name: 'john doe',
+        email,
+        address: '123 Main St',
+        cep: '123',
+        password: '123456',
+        whatsappNumber: '123456789',
+      }),
+    ).rejects.toBeInstanceOf(OrgAlreadyExistsError)
+  })
 })
