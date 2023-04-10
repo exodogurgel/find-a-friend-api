@@ -38,7 +38,7 @@ model Pet {
   type         String
   environment  String
 
-  petGalery            PetGalery[]
+  petGallery           PetGallery[]
   adoptionRequirements AdoptionRequirements[]
 
   org    Org    @relation(fields: [org_id], references: [id])
@@ -47,14 +47,14 @@ model Pet {
   @@map("pets")
 }
 
-model PetGalery {
+model PetGallery {
   id    String @id @default(cuid())
   image String
 
   pet    Pet    @relation(fields: [pet_id], references: [id])
   pet_id String
 
-  @@map("pet_galery")
+  @@map("pet_gallery")
 }
 
 model AdoptionRequirements {
