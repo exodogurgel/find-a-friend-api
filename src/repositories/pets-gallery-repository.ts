@@ -1,5 +1,5 @@
-import { PetGallery, Prisma } from '@prisma/client'
+import { PetGallery } from '@prisma/client'
 
 export interface PetsGalleryRepository {
-  add(data: Prisma.PetGalleryUncheckedCreateInput[]): Promise<PetGallery[]>
+  add(data: string[], petId: string): Promise<PetGallery[]>
 }

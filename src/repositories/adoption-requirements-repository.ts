@@ -1,7 +1,5 @@
-import { AdoptionRequirements, Prisma } from '@prisma/client'
+import { AdoptionRequirements } from '@prisma/client'
 
 export interface AdoptionRequirementsRepository {
-  add(
-    data: Prisma.AdoptionRequirementsUncheckedCreateInput[],
-  ): Promise<AdoptionRequirements[]>
+  add(data: string[], petId: string): Promise<AdoptionRequirements[]>
 }
