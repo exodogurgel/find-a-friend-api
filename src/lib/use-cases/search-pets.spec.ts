@@ -168,8 +168,6 @@ describe('Search Pets Use Case', () => {
       type: null,
     })
 
-    console.log(pets)
-
     expect(pets).toHaveLength(1)
     expect(pets).toEqual([expect.objectContaining({ age: 'elderly' })])
   })

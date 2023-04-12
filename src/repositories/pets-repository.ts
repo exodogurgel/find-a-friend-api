@@ -10,6 +10,7 @@ export interface FindByQueryProps {
 }
 
 export interface PetsRepository {
+  findById(id: string): Promise<Pet | null>
   findByQuery(data: FindByQueryProps): Promise<Pet[]>
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
 }
