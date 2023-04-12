@@ -3,7 +3,8 @@ import axios from 'axios'
 
 interface BrazilStateProps {
   id: number
-  name: string
+  nome: string
+  sigla: string
 }
 
 interface BrazilCityProps {

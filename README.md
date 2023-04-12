@@ -10,6 +10,7 @@ FindAFriend style app.
 - [x] Deve ser possível visualizar detalhes de um pet para adoção
 - [x] Deve ser possível se cadastrar como uma ORG
 - [x] Deve ser possível Buscar todos os estados do Brasil
+- [ ] Deve ser possível Buscar todas as cidades de um estado do Brasil
 - [x] Deve ser possível realizar login como uma ORG
 
 ### RNs (Regras de negócio)

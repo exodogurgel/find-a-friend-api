@@ -10,7 +10,6 @@ describe('Fetch States Use Case', () => {
 
   it('should be able to fetch states in Brazil', async () => {
     const { states } = await sut.execute()
-    console.log(states.length)
 
     expect(states).toHaveLength(27)
   })
