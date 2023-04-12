@@ -38,8 +38,6 @@ describe('Register Pet Use Case', () => {
       adoptionRequirements: ['requirement-01', 'requirement-02'],
     })
 
-    console.log(pet)
-
     expect(pet.id).toEqual(expect.any(String))
   })
 })
