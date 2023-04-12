@@ -15,7 +15,7 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pet
   }
 
-  async findByQuery({
+  async findManyByQuery({
     city,
     age,
     energy,

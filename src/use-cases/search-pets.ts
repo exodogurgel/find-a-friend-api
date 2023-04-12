@@ -20,7 +20,7 @@ export class SearchPetsUseCase {
   async execute(
     data: SearchPetsUseCaseRequest,
   ): Promise<SearchPetsUseCaseResponse> {
-    const pets = await this.petsRepository.findByQuery(data)
+    const pets = await this.petsRepository.findManyByQuery(data)
 
     return {
       pets,
