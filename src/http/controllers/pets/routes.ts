@@ -4,10 +4,15 @@ import { verifyJWT } from '@/http/middlewares/verify-jwt'
 import multer from 'fastify-multer'
 
 import uploadConfig from '@/config/upload'
+import { gallery } from './gallery'
 const upload = multer(uploadConfig)
 
 export async function petsRoutes(app: FastifyInstance) {
-  app.addHook('onRequest', verifyJWT)
+  app.get('/pets/gallery/:petId', gallery)
 
-  app.post('/pets', { preHandler: upload.array('images', 6) }, register)
+  app.post(
+    '/pets',
+    { onRequest: [verifyJWT], preHandler: upload.array('images', 6) },
+    register,
+  )
 }
