@@ -5,5 +5,5 @@ import { fetchCities } from './fetch-cities'
 
 export async function locationRoutes(app: FastifyInstance) {
   app.get('/location/states', fetchStates)
-  app.get('/location/states/:UF', fetchCities)
+  app.get('/location/cities/:UF', fetchCities)
 }
