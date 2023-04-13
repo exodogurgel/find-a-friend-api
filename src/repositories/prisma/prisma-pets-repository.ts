@@ -9,9 +9,29 @@ export class PrismaPetsRepository implements PetsRepository {
         id,
       },
       include: {
-        org: true,
-        petGallery: true,
-        adoptionRequirements: true,
+        org: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            address: true,
+            cep: true,
+            whatsapp_number: true,
+            created_at: true,
+          },
+        },
+        petGallery: {
+          select: {
+            id: true,
+            image: true,
+          },
+        },
+        adoptionRequirements: {
+          select: {
+            id: true,
+            title: true,
+          },
+        },
       },
     })
 
