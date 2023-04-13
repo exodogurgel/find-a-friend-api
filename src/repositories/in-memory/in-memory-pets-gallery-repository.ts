@@ -5,6 +5,12 @@ import { randomUUID } from 'node:crypto'
 export class InMemoryPetsGalleryRepository implements PetsGalleryRepository {
   public items: PetGallery[] = []
 
+  async findManyById(id: string) {
+    const gallery = this.items.filter((item) => item.pet_id === id)
+
+    return gallery
+  }
+
   async add(data: string[], petId: string) {
     await Promise.all(
       data.map((imageGallery) => {
