@@ -1,10 +1,14 @@
+import path from 'node:path'
+
 import fastify from 'fastify'
+import multer from 'fastify-multer'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
 
 import { env } from './env'
 import { ZodError } from 'zod'
 import { orgsRoutes } from './http/controllers/orgs/routes'
+import { petsRoutes } from './http/controllers/pets/routes'
 
 export const app = fastify()
 
@@ -20,8 +24,15 @@ app.register(fastifyJwt, {
 })
 
 app.register(fastifyCookie)
+app.register(multer.contentParser)
+
+app.register(require('@fastify/static'), {
+  root: path.join(__dirname, '..', 'tmp', 'uploads'),
+  prefix: '/images',
+})
 
 app.register(orgsRoutes)
+app.register(petsRoutes)
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {

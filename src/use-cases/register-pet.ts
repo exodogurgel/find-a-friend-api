@@ -8,6 +8,7 @@ interface RegisterPetUseCaseRequest {
   age: string
   city: string
   description: string
+  photo: string
   energy: number
   independence: string
   size: string
@@ -38,6 +39,7 @@ export class RegisterPetUseCase {
     independence,
     size,
     type,
+    photo,
     environment,
     orgId,
     adoptionRequirements,
@@ -48,7 +50,7 @@ export class RegisterPetUseCase {
       age,
       city,
       description,
-      photo: gallery[0],
+      photo,
       energy,
       independence,
       size,
