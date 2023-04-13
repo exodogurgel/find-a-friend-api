@@ -20,10 +20,10 @@ FindAFriend style app.
 - [x] Um pet deve estar ligado a uma ORG
 - [ ] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
 - [x] Todos os filtros, além da cidade, são opcionais
-- [ ] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
+- [x] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
 ### RNFs (Requisitos não-funcionais)
 
 - [x] A senha da ORG precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-- [ ] Uma ORG deve ser identificado por um JWT (JSON Web Token);
+- [x] Uma ORG deve ser identificado por um JWT (JSON Web Token);
